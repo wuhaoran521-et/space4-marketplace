@@ -1,0 +1,27 @@
+{
+  "name": "ai-space-asset-os",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace web",
+    "preview": "npm run preview --workspace web",
+    "build": "npm run build --workspace web",
+    "lint": "npm run lint --workspace web",
+    "typecheck": "npm run typecheck --workspace web",
+    "test": "npm run test --workspace web",
+    "test:watch": "npm run test:watch --workspace web",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run format:check"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}
