@@ -1,0 +1,28 @@
+/* Point-anchored time axis. Existing palette and flow contracts stay intact. */
+.page .map{height:460px;background:var(--paper);isolation:isolate;overflow:hidden}
+.map::before{content:"";position:absolute;inset:0;background:var(--paper) url('assets/map-full-v4.png') no-repeat center;background-size:cover;z-index:-1}
+.map::after{content:none}
+.map .space-pin::after{content:"白庭 01 · 示意";position:absolute;left:48px;top:25px;padding:2px 5px;background:var(--surface);color:var(--accent);font-size:11px;white-space:nowrap}
+.map .space-pin[aria-expanded=true]::after{display:none}
+.reference-landmark{position:absolute;display:flex;align-items:center;gap:4px;font-size:10px;color:var(--muted);padding:2px 5px;background:var(--surface);pointer-events:none}
+.reference-landmark::before{content:"";width:5px;height:5px;background:var(--muted);border-radius:50%}
+.reference-landmark.temple{left:12%;top:45%}.reference-landmark.exhibition{right:9%;top:66%}
+.map .space-pin{left:39%;top:calc(100% - min(100vw,430px) * .263);z-index:3}
+.map .timeline{position:absolute;top:18px;bottom:calc(min(100vw,430px) * .263);left:39%;width:calc(61% - 16px);margin:0;padding:0 0 0 16px;border:0;border-radius:0;box-shadow:none;background:none;animation:axis-rise .22s ease-out;transform-origin:bottom left;overflow:visible}
+.map .timeline::before{content:"";position:absolute;top:54px;bottom:0;left:0;width:1px;background:var(--accent)}
+.map .timeline-heading{gap:0;background:var(--surface);padding:4px 0 4px 9px;border-bottom:1px solid var(--line)}
+.map .timeline-heading h1{font-size:18px}.map .timeline-heading h1 span{font-size:17px}.map .timeline-month{font-size:10px}
+#close-timeline{border:0;background:transparent;width:44px;height:44px;font-size:19px;color:var(--muted);flex-shrink:0}
+.map .date-row{display:flex;flex-direction:column;margin:7px 0 0;gap:0}
+.map .date-row button{position:relative;display:flex;flex-direction:row;gap:10px;align-items:center;min-height:44px;padding:4px 9px;border:0;border-bottom:1px solid var(--line);background:var(--surface);font-size:13px}
+.map .date-row button::before{content:"";position:absolute;left:-16px;top:22px;width:16px;height:1px;background:var(--accent)}
+.map .date-row i{position:absolute;left:-20px;top:18px;width:9px;height:9px;margin:0;border-radius:50%;border:1px solid var(--surface)}
+.map .date-row [data-state=unknown] i{border-color:var(--accent);background:var(--surface)}
+.map .date-row small{margin-left:auto}.map .date-row [aria-pressed=true]{background:var(--paper)}
+.map .timeline-footer{display:grid;grid-template-columns:1fr 1fr;gap:0 4px;margin-top:7px;padding:5px 9px 0;background:var(--surface);border:0;min-height:0}
+.map .timeline-footer p{grid-column:1/-1;font-size:9px}.map .timeline-footer a{font-size:10px;min-height:44px}
+.map-section>.map-disclaimer{padding:8px 18px 0;font-size:10px}.map .map-note{bottom:5px}
+.photo-grid{align-items:start}.feed-column{display:flex;flex-direction:column;gap:22px;min-width:0}.feed-card.portrait img{aspect-ratio:4/5}.feed-card h3{min-height:0}
+.photo-grid.single-category{display:block}.single-category .feed-column{display:contents}.single-category .feed-card:not([hidden]){max-width:calc(50% - 6px);margin-bottom:22px}
+@keyframes axis-rise{from{opacity:0;transform:scaleY(.93)}to{opacity:1;transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){.map .timeline{animation:none}}

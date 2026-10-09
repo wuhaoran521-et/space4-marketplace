@@ -17,7 +17,8 @@
     document.querySelectorAll('[data-filter]').forEach(item => item.setAttribute('aria-pressed',String(item === button)));
     let count = 0;
     document.querySelectorAll('[data-kind]').forEach(card => { card.hidden = button.dataset.filter !== 'all' && card.dataset.kind !== button.dataset.filter; if (!card.hidden) count++; });
-    $('feed-note').textContent = `${count}条概念内容 · 照片统一4:3`;
+    $('feed-note').textContent = `${count}条概念内容 · 横竖图交错`;
+    document.querySelector('.photo-grid').classList.toggle('single-category', count === 1);
   }));
   $('find-space').addEventListener('click', () => { window.scrollTo({top:$('spaces').getBoundingClientRect().top+window.scrollY-16,behavior:'auto'}); document.querySelector('[data-filter=space]').click(); document.querySelector('[data-filter=space]').focus({preventScroll:true}); });
   const input = $('agent-input');
