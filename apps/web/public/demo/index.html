@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>SPACE⁴ · 空间与需求可点击演示</title>
+  <link rel="stylesheet" href="flow.css?v=entry-buttons-2">
+  <style>
+    :root{--paper:#f2f0ea;--surface:#f8f7f3;--ink:#20211e;--muted:#696b63;--line:rgba(32,33,30,.16);--accent:#b64b36;--soft:rgba(182,75,54,.08);--font:"Avenir Next","PingFang SC","Hiragino Sans GB",sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}p,h1,h2,h3,figure{margin:0}p{text-wrap:pretty}button,summary{font:inherit}button{color:inherit}button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}button:disabled{opacity:1;cursor:default}sup{font-size:.5em;vertical-align:super}
+    .page{width:100%;max-width:430px;margin:auto;background:var(--surface);min-height:100vh}.topbar{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid var(--line)}.back{border:0;background:none;min-height:44px;min-width:44px;text-align:left;font-size:24px}.brand{font-size:21px;letter-spacing:.12em;font-weight:650}.topbar .status{font-size:12px;color:var(--muted)}
+    .hero{position:relative;height:280px;overflow:hidden}.hero img{width:100%;height:100%;object-fit:cover;object-position:53% 55%}.image-label{position:absolute;bottom:12px;right:16px;font-size:11px;background:var(--surface);padding:3px 8px;color:var(--muted)}
+    .overview{padding:26px 24px 0}.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--muted)}.title-row{display:flex;align-items:center;justify-content:space-between;margin:6px 0 8px}h1{font-size:34px;font-weight:500;letter-spacing:-.025em;line-height:1.25}.space-no{font-size:12px;font-variant-numeric:tabular-nums;letter-spacing:.06em;color:var(--muted)}.description{font-size:15px;line-height:1.7}.tags{display:flex;gap:14px;margin-top:14px;font-size:12px;color:var(--muted)}.tags span+span{border-left:1px solid var(--line);padding-left:14px}
+    .metrics{display:grid;grid-template-columns:1fr 1fr;gap:20px 28px;margin-top:28px;padding:23px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.metric dt{font-size:12px;color:var(--muted);margin-bottom:3px}.metric dd{margin:0;font-size:28px;line-height:1.25;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.03em}.metric dd small{font-size:13px;margin-left:4px;font-weight:400;letter-spacing:0}.metric .price{font-size:25px}.price-note{font-size:11px;color:var(--muted);margin-top:5px}
+    .content{padding:0 24px}.section{padding:32px 0;border-bottom:1px solid var(--line)}.heading{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px}h2{font-size:19px;line-height:1.35;font-weight:550;letter-spacing:-.02em}.minor{font-size:12px;color:var(--muted)}.area-track{display:flex;height:10px;gap:3px}.area-track .indoor{width:71.4286%;background:var(--ink)}.area-track .outdoor{flex:1;background:var(--accent)}.area-legend{display:flex;justify-content:space-between;margin-top:12px;font-size:12px;color:var(--muted)}.area-legend strong{font-size:17px;font-weight:500;color:var(--ink);margin-left:5px;font-variant-numeric:tabular-nums}.dot{display:inline-block;width:5px;height:5px;margin:0 5px 2px 0;background:var(--ink)}.dot.red{background:var(--accent)}.conditions{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}.conditions summary{cursor:pointer;font-size:14px;min-height:44px;display:flex;justify-content:space-between;align-items:center;list-style:none}.conditions summary::-webkit-details-marker{display:none}.conditions summary:after{content:'＋';font-size:19px;color:var(--muted)}.conditions[open] summary:after{content:'−'}.conditions p{color:var(--muted);font-size:14px;padding:8px 0;line-height:1.8}
+    .tabs{display:flex;gap:22px;font-size:13px;margin-bottom:14px}.tabs span{padding-bottom:8px;color:var(--muted)}.tabs .active{color:var(--ink);border-bottom:1px solid var(--ink)}.placeholder{min-height:152px;display:flex;align-items:center;justify-content:center;flex-direction:column;background:var(--paper);border:1px solid var(--line);gap:6px;color:var(--muted)}.placeholder strong{font-size:14px;font-weight:400}.placeholder small{font-size:11px}.case-heading{display:flex;justify-content:space-between;gap:16px;margin-top:16px}h3{font-size:16px;font-weight:500}.case-heading .minor{white-space:nowrap;line-height:2}.case-copy{font-size:13px;color:var(--muted);line-height:1.8;margin-top:6px}.case-meta{display:flex;gap:12px;font-size:12px;color:var(--muted);margin-top:12px}.case-meta span+span{padding-left:12px;border-left:1px solid var(--line)}
+    .model-slot{background:var(--paper);border:1px solid var(--line);padding:14px 16px}.model-caption{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}.plan{display:block;width:100%;height:auto;margin-top:14px}.model-footer{font-size:11px;color:var(--muted);margin-top:10px}.route{margin-top:16px;display:grid;grid-template-columns:60px 1fr;gap:8px;font-size:12px;line-height:1.8}.route dt{color:var(--accent)}.route dd{margin:0;color:var(--muted)}.environment{display:flex;align-items:center;gap:16px;margin-top:20px}.environment .thumbnail{background:var(--paper);border:1px solid var(--line);width:72px;height:64px;flex-shrink:0;display:grid;place-items:center;color:var(--muted);font-size:11px}.environment p{font-size:13px;color:var(--muted)}
+    .dates{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.date{padding:12px 0;text-align:center;background:var(--paper);border:1px solid transparent}.date strong{display:block;font-size:23px;line-height:1.4;font-weight:500;font-variant-numeric:tabular-nums}.date small{font-size:11px;color:var(--muted)}.date.available{background:var(--soft);border-color:rgba(182,75,54,.25)}.date.available small{color:var(--accent)}.date.unavailable strong{text-decoration:line-through;color:var(--muted)}.date.unknown{border:1px dashed var(--line);background:transparent}.schedule{font-size:12px;color:var(--muted);margin:14px 0 0;line-height:1.8}.fee-row{display:flex;justify-content:space-between;align-items:baseline;padding:20px 0 8px}.fee-row span{font-size:13px}.fee-row strong{font-size:23px;font-weight:500;font-variant-numeric:tabular-nums}.fee-row strong small{font-size:12px;font-weight:400}.fee-note{font-size:12px;color:var(--muted);line-height:1.8}.cooperation{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}.cooperation h3{font-size:14px}.cooperation p{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.8}
+    .disclaimer{font-size:11px;color:var(--muted);padding:22px 0 26px;line-height:1.8}.cta{border-top:1px solid var(--line);padding:16px 24px 22px;background:var(--surface);display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:center}.save{background:transparent;border:1px solid var(--line);height:48px;font-size:13px}.submit{border:0;border-radius:2px;background:var(--accent);color:var(--surface);height:48px;font-size:15px;letter-spacing:.025em}.cta-note{grid-column:1/-1;text-align:center;color:var(--muted);font-size:11px;line-height:1;margin-top:-4px}
+    .share-button{min-width:56px;min-height:44px;padding:0 10px;border:1px solid var(--line);border-radius:2px;background:transparent;font-size:13px;cursor:pointer}.share-button:hover{background:var(--paper)}.share-button:active{background:var(--soft)}.cta{grid-template-columns:56px 56px minmax(0,1fr);gap:12px}.cta .share-button{height:48px}.share-sheet{position:fixed;inset:auto 0 0;margin:0 auto;width:min(100%,430px);max-height:85dvh;overflow:auto;padding:24px;border:1px solid var(--line);border-radius:6px 6px 0 0;background:var(--surface);color:var(--ink)}.share-sheet::backdrop{background:rgba(32,33,30,.3)}.share-sheet header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.close-share{height:44px;min-width:44px;border:0;background:none;cursor:pointer;font-size:14px}.share-sheet p{font-size:14px;color:var(--muted);line-height:1.8}.share-actions{display:grid;gap:10px;margin-top:20px}.share-actions button,.share-actions a{display:flex;align-items:center;justify-content:center;min-height:48px;border:1px solid var(--line);border-radius:2px;background:transparent;color:var(--ink);font-size:14px;text-decoration:none;cursor:pointer}.share-actions button:hover,.share-actions a:hover{background:var(--paper)}.share-actions button:disabled{color:var(--muted)}.share-actions .download{background:var(--ink);color:var(--surface)}.share-actions .download:hover{background:var(--accent)}.share-actions [hidden]{display:none}.share-link{width:100%;margin-top:14px;border:1px solid var(--line);background:var(--paper);color:var(--muted);padding:10px;font:inherit;font-size:12px}.share-link[hidden]{display:none}.share-feedback{min-height:24px;margin-top:12px}.share-sheet a:focus-visible,.share-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    @media(min-width:650px){body{padding:32px 0}.page{border:1px solid var(--line)}}@media(max-width:360px){.overview,.content{padding-left:20px;padding-right:20px}.hero{height:240px}.area-legend{font-size:11px}.area-legend strong{font-size:15px}.tags{gap:10px}.cta{padding-left:20px;padding-right:20px;gap:8px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+<main class="page" aria-label="空间详情静态设计稿">
+  <header class="topbar"><a class="back" href="discovery.html" aria-label="返回发现首页" style="display:flex;align-items:center;color:inherit;text-decoration:none">‹</a><div class="brand">SPACE<sup>4</sup></div><button class="share-button" type="button" data-share aria-haspopup="dialog" aria-controls="share-sheet">分享 ↗</button></header>
+  <figure class="hero"><img src="assets/courtyard.png" alt="庭院空间概念图，不是真实场地照片"><figcaption class="image-label">空间概念图 · 非实景</figcaption></figure>
+  <div class="overview">
+    <p class="eyebrow">上海 · 静安　/　庭院空间</p>
+    <div class="title-row"><h1>白庭 01</h1><span class="space-no">模拟空间 01</span></div>
+    <p class="description">让一场发布，<br>从室内延伸到庭院。</p>
+    <div class="tags"><span>新品发布</span><span>展陈</span><span>内容拍摄</span></div>
+    <nav class="demo-nav" aria-label="需求演示入口">
+      <button class="entry-button entry-primary" type="button" data-open-brief aria-haspopup="dialog" aria-controls="brief-screen"><span class="entry-title">模拟需求匹配<span aria-hidden="true">↗</span></span><span class="entry-description">填写活动条件</span></button>
+      <button class="entry-button" type="button" data-open-records aria-haspopup="dialog" aria-controls="records-screen"><span class="entry-title">我的演示需求<span aria-hidden="true">→</span></span><span class="entry-description">查看已保存记录</span></button>
+    </nav>
+    <div class="recommend-context" id="recommend-context" hidden><p class="minor">来自模拟推荐 · 不是实际AI输出</p><p id="context-summary"></p><button type="button" id="return-results">返回匹配结果</button></div>
+    <dl class="metrics">
+      <div class="metric"><dt>总可用面积</dt><dd>420<small>㎡</small></dd></div>
+      <div class="metric"><dt>室内净层高</dt><dd>4.2<small>m</small></dd></div>
+      <div class="metric"><dt>剧院式容量</dt><dd>100<small>人</small></dd></div>
+      <div class="metric"><dt>基础场租参考价</dt><dd class="price">18,000<small>元 / 日</small></dd></div>
+    </dl>
+    <p class="price-note">全部为模拟数值；实际人数与费用按活动方案确认。</p>
+  </div>
+  <div class="content">
+    <section class="section" aria-labelledby="area-title">
+      <div class="heading"><h2 id="area-title">室内与庭院，一起使用</h2><span class="minor">一层空间</span></div>
+      <div class="area-track" role="img" aria-label="室内300平方米占71.4%，庭院120平方米占28.6%"><span class="indoor"></span><span class="outdoor"></span></div>
+      <div class="area-legend"><span><i class="dot"></i>室内 300㎡ <strong>71.4%</strong></span><span><i class="dot red"></i>庭院 120㎡ <strong>28.6%</strong></span></div>
+      <details class="conditions"><summary>查看执行条件与使用限制</summary><p>模拟条件：站立150人／宴会式60人；用电60kW，主门宽1.8m。09:00–21:00使用，禁止明火及钻孔。货车装卸与户外扩音需另行确认。</p></details>
+    </section>
+    <section class="section" aria-labelledby="case-title">
+      <div class="heading"><h2 id="case-title">空间里的不同场景</h2><span class="minor">案例档案</span></div>
+      <div class="tabs" aria-label="拟设计的布置切换，当前为静态示意"><span>原始白场</span><span class="active">发布布置</span></div>
+      <div class="placeholder" role="img" aria-label="活动布置图素材占位"><strong>活动布置图</strong><small>概念素材待制作 · 此处预留画面</small></div>
+      <div class="case-heading"><h3>折光实验室 · 秋季器物发布</h3><span class="minor">虚构案例</span></div>
+      <p class="case-copy">中轴展台与环形浏览路线。室内完成发布，庭院承接交流。品牌与活动均为演示设定。</p>
+      <div class="case-meta"><span>2026.09.18</span><span>80人</span><span>模拟团队协助选址</span></div>
+    </section>
+    <section class="section" aria-labelledby="plan-title">
+      <div class="heading"><h2 id="plan-title">先看位置，再看动线</h2><span class="minor">分区示意</span></div>
+      <div class="model-slot">
+        <div class="model-caption"><span>白膜模块预留 · 先用平面示意</span><span>北 ↑</span></div>
+        <svg class="plan" viewBox="0 0 330 208" role="img" aria-labelledby="plan-label">
+          <title id="plan-label">非测绘分区示意，室内与庭院相邻；主入口至签到、发布区、庭院，物流入口至后台</title>
+          <g fill="#f8f7f3" stroke="#20211e" stroke-opacity=".3" stroke-width="1.2"><path d="M18 18H233V136H18Z"/><path d="M242 18H313V186H242Z"/><path d="M18 148H233V186H18Z"/><path d="M177 18V58H233" fill="none"/></g>
+          <g font-family="PingFang SC,sans-serif" font-size="11" fill="#696b63"><text x="86" y="53">室内发布区</text><text x="86" y="70">300㎡</text><text x="257" y="94">庭院</text><text x="254" y="112">120㎡</text><text x="188" y="43">后台</text><text x="90" y="173">到达与签到</text></g>
+          <path d="M94 202V162H57V96H153V111H277V156" fill="none" stroke="#b64b36" stroke-width="2"/>
+          <path d="M322 40H213V76H158" fill="none" stroke="#696b63" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <g fill="#b64b36"><circle cx="94" cy="202" r="3"/><circle cx="277" cy="156" r="3"/></g>
+        </svg>
+        <p class="model-footer">非测绘图 · 不代表疏散方案 · 本版尚无3D旋转</p>
+      </div>
+      <dl class="route"><dt>观众动线</dt><dd>主入口 → 签到 → 室内发布 → 庭院交流</dd><dt style="color:var(--muted)">物流动线</dt><dd>侧门 → 后台 → 展台，错开签到时段</dd></dl>
+      <div class="environment"><div class="thumbnail">环境图占位</div><div><h3>安静的低层街区</h3><p>周边有居民，晚间噪音需控制。<br>虚构位置，不提供导航。</p></div></div>
+    </section>
+    <section class="section" aria-labelledby="date-title">
+      <div class="heading"><h2 id="date-title">空间，也有它的时间</h2><span class="minor">2026年11月</span></div>
+      <div class="dates" aria-label="模拟档期"><div class="date available"><strong>10</strong><small>可用</small></div><div class="date available"><strong>11</strong><small>可用</small></div><div class="date available"><strong>12</strong><small>可用</small></div><div class="date unavailable"><strong>13</strong><small>不可用</small></div><div class="date unknown"><strong>14</strong><small>待确认</small></div></div>
+      <p class="schedule">10日搭建 · 11日活动 · 12日撤场<br>每日09:00–21:00；模拟更新于2026.10.09。</p>
+      <div class="fee-row"><span>连续三日基础场租</span><strong>54,000 <small>元</small></strong></div>
+      <p class="fee-note">含室内、庭院、常规空调与基础保洁。<br>不含搭建、设备、安保、税费、押金及超时费。</p>
+      <div class="cooperation"><h3>另一个合作可能：品牌共创</h3><p>模拟11月14日可申请基础场租减免，方案择优、设备等自理；申请截止10月31日，档期仍待确认。</p></div>
+    </section>
+    <p class="disclaimer">这是可点击演示。空间、案例、价格和档期均为模拟，匹配使用本地规则而非真实AI。需求只保存在当前浏览器，不发送给运营，不构成真实报价或预订。</p>
+  </div>
+  <footer class="cta"><button class="save" disabled>收藏</button><button class="share-button" type="button" data-share aria-haspopup="dialog" aria-controls="share-sheet">分享</button><button class="submit" type="button" data-open-brief>提交活动需求</button><p class="cta-note">仅演示提交 · 不发送给运营，不预订场地</p></footer>
+</main>
+<dialog class="flow-screen" id="brief-screen" aria-labelledby="brief-title">
+  <header class="flow-header"><button type="button" data-close-flow>返回</button><span>活动需求</span><span class="minor">模拟演示</span></header>
+  <div class="flow-body"><p class="eyebrow">选址，从你的活动开始</p><h1 id="brief-title">把需求说清楚。</h1><p class="flow-intro">先确认影响选址的几个条件。<br>不确定的预算可以留空，不填写真实个人信息。</p>
+    <form id="brief-form">
+      <label class="field">活动用途<select name="purpose"><option>新品发布</option><option>展览</option><option>拍摄</option><option>快闪</option><option>其他用途</option></select></label>
+      <div class="field-grid"><label class="field">开始日期<input type="date" name="start" value="2026-11-10" required></label><label class="field">结束日期<input type="date" name="end" value="2026-11-12" required></label></div>
+      <p class="field-hint">日期需包含搭建与撤场，本例每日09:00–21:00。</p>
+      <div class="field-grid"><label class="field">活动人数<input name="people" type="number" min="1" max="10000" step="1" value="90" required></label><label class="field">布置方式<select name="layout"><option value="theater">剧院式</option><option value="standing">站立式</option><option value="banquet">宴会式</option></select></label></div>
+      <label class="field">区域<select name="district"><option>静安</option><option>徐汇</option><option>黄浦</option><option>不限区域</option></select></label>
+      <label class="field">基础场租预算（元）<input name="budget" type="number" min="0" max="100000000" step="1" value="60000" placeholder="暂未确定可留空"></label>
+      <p class="field-hint">这里只比较基础场租，不含设备、搭建、安保等额外费用。</p>
+      <fieldset class="needs"><legend>其他必须条件</legend><label><input type="checkbox" name="loading" checked>需要货车装卸</label><label><input type="checkbox" name="audio" checked>需要户外扩音</label></fieldset>
+      <p class="form-error" id="brief-error" role="alert"></p>
+      <button class="primary-action" type="submit">确认需求，查看模拟结果</button><p class="field-hint">本地规则演示 · 不调用真实AI</p>
+    </form>
+  </div>
+</dialog>
+<dialog class="flow-screen" id="result-screen" aria-labelledby="result-title">
+  <header class="flow-header"><button type="button" id="edit-brief">修改需求</button><span>匹配结果</span><span class="minor">模拟演示</span></header>
+  <div class="flow-body"><p class="eyebrow">少一些猜测，多一些依据</p><h1 id="result-title">值得进一步了解。</h1><p class="flow-intro" id="result-summary"></p>
+    <div class="result-venue"><img src="assets/courtyard.png" alt="白庭概念图，非真实空间"><div><h2>白庭 01</h2><p class="minor">静安 · 室内300㎡ · 虚构空间</p></div></div>
+    <p id="result-conclusion" class="result-conclusion"></p>
+    <div id="match-checks" class="match-checks"></div>
+    <div class="budget-visual" id="budget-visual" hidden><div class="heading"><span>基础场租预算占用</span><strong id="budget-percent"></strong></div><div class="budget-track"><span id="budget-fill"></span></div><p class="field-hint" id="budget-explanation"></p></div>
+    <p class="field-hint">只有这一个虚构空间样本。结果不代表全市场搜索；档期及费用均需重新确认。</p>
+    <div class="flow-actions"><button class="secondary-action" type="button" id="view-space">查看空间与推荐依据</button><button class="primary-action" type="button" id="save-request">保存演示需求</button><button class="text-action" type="button" data-close-flow>返回空间</button></div>
+    <p class="form-error" id="save-feedback" role="status"></p>
+  </div>
+</dialog>
+<dialog class="flow-screen" id="records-screen" aria-labelledby="records-title">
+  <header class="flow-header"><button type="button" data-close-flow>返回空间</button><span>我的需求</span><span class="minor">仅本机</span></header>
+  <div class="flow-body"><p class="eyebrow">让每一次选址都有记录</p><h1 id="records-title">我的演示需求</h1><p class="flow-intro">不发送给运营，不代表已受理。<br>仅保留最近20份当前浏览器、当前地址的记录。</p><p id="storage-notice" class="field-hint"></p><div id="record-list"></div><button class="primary-action" type="button" data-open-brief>创建新的演示需求</button></div>
+</dialog>
+<dialog class="share-sheet" id="share-sheet" aria-labelledby="share-title" aria-describedby="share-warning">
+  <header><h2 id="share-title">分享这个空间</h2><button class="close-share" type="button" id="close-share" aria-label="关闭分享">关闭</button></header>
+  <p>白庭 01 · 静安庭院空间<br>模拟设计稿，非真实场地信息。</p>
+  <p id="share-warning" style="margin-top:12px">当前为本地预览，链接只能在本机打开。发给别人看，请先保存页面长图。</p>
+  <div class="share-actions">
+    <a class="download" href="完整页面.png" download="Space_Four_白庭01_模拟设计稿.png">保存页面长图</a>
+    <button type="button" id="copy-link">复制本机预览链接</button>
+    <button type="button" id="native-share" hidden>打开系统分享</button>
+  </div>
+  <input class="share-link" id="manual-link" type="text" readonly hidden aria-label="请手动复制本机预览链接">
+  <p class="share-feedback" id="share-feedback" role="status" aria-live="polite"></p>
+</dialog>
+<script>
+  (() => {
+    const sheet = document.getElementById('share-sheet');
+    const feedback = document.getElementById('share-feedback');
+    const manualLink = document.getElementById('manual-link');
+    const copyButton = document.getElementById('copy-link');
+    const nativeButton = document.getElementById('native-share');
+    const localPreview = location.protocol === 'file:' || ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+    const shareUrl = location.href.split('#')[0];
+    const shareData = {title: '白庭 01 · SPACE⁴ 模拟设计稿', text: '庭院空间详情设计演示。空间、价格与档期均为模拟，不用于真实预订。', url: shareUrl};
+    if (!localPreview) {
+      document.getElementById('share-warning').textContent = '此页面为模拟设计稿，不构成真实报价或预订承诺。';
+      copyButton.textContent = '复制页面链接';
+    }
+    let shareTrigger;
+    document.querySelectorAll('[data-share]').forEach(button => button.addEventListener('click', () => {
+      shareTrigger = button;
+      feedback.textContent = '';
+      manualLink.hidden = true;
+      sheet.showModal();
+    }));
+    document.getElementById('close-share').addEventListener('click', () => sheet.close());
+    sheet.addEventListener('click', event => {if (event.target === sheet) {const rect = sheet.getBoundingClientRect(); if(event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) sheet.close();}});
+    sheet.addEventListener('close', () => shareTrigger?.focus());
+    copyButton.addEventListener('click', async () => {
+      copyButton.disabled = true;
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(shareUrl);
+        feedback.textContent = localPreview ? '已复制。此链接仅限本机；对外请使用页面长图。' : '页面链接已复制。';
+      } catch {
+        manualLink.value = shareUrl;
+        manualLink.hidden = false;
+        manualLink.focus();
+        manualLink.select();
+        feedback.textContent = '未能自动复制，请复制上方已选中的链接。';
+      } finally {copyButton.disabled = false;}
+    });
+    if (typeof navigator.share === 'function' && location.protocol !== 'file:') {
+      nativeButton.hidden = false;
+      nativeButton.addEventListener('click', async () => {
+        nativeButton.disabled = true;
+        try {await navigator.share(shareData); feedback.textContent = '系统分享操作已结束。';}
+        catch (error) {feedback.textContent = error.name === 'AbortError' ? '已取消分享。' : '系统分享暂不可用，请保存长图或复制链接。';}
+        finally {nativeButton.disabled = false;}
+      });
+    }
+  })();
+</script>
+<script src="flow.js?v=map-grid-2"></script>
+</body>
+</html>

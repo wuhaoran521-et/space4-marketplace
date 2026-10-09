@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>发现 · 空间与时间 · SPACE⁴</title><meta name="description" content="SPACE⁴空间发现演示，所有位置与档期均为模拟。"><link rel="stylesheet" href="discovery.css?v=map-grid-2"></head>
+<body><main class="page">
+  <header class="topbar"><span class="brand">SPACE<sup>4</sup></span><span class="location">上海 ⌄ <span class="demo-tag">概念演示</span></span></header>
+  <section class="map-section" aria-label="地图与档期演示">
+    <div class="map" role="group" aria-label="上海中心城区概念地图，非实时或测绘地图"><button class="space-pin" id="space-pin" data-asset-id="DEMO-SHA-JA-001" type="button" aria-label="白庭01，展开或收起模拟档期" aria-expanded="true" aria-controls="timeline"><span class="pin-dot"></span></button><button class="map-reset" id="map-reset" type="button" aria-label="重新选择模拟空间">◎</button><span class="map-note">地图示意 · 位置非测绘</span></div>
+    <section class="timeline" id="timeline" aria-labelledby="timeline-title">
+      <button class="timeline-handle" id="close-timeline" type="button" aria-label="收起档期"><span></span></button>
+      <div class="timeline-heading"><h1 id="timeline-title">白庭 <span>01</span></h1><a href="index.html">查看空间 ↗</a></div><p class="timeline-month">2026年11月 · 模拟档期</p>
+      <div class="date-row" role="group" aria-label="选择模拟日期">
+        <button type="button" data-date="2026-11-10" data-state="available" aria-pressed="true"><span>11/10</span><small>周二</small><i></i></button>
+        <button type="button" data-date="2026-11-11" data-state="available" aria-pressed="true"><span>11/11</span><small>周三</small><i></i></button>
+        <button type="button" data-date="2026-11-12" data-state="available" aria-pressed="true"><span>11/12</span><small>周四</small><i></i></button>
+        <button type="button" data-date="2026-11-13" data-state="unavailable" aria-pressed="false"><span>11/13</span><small>周五</small><i></i></button>
+        <button type="button" data-date="2026-11-14" data-state="unknown" aria-pressed="false"><span>11/14</span><small>周六</small><i></i></button>
+      </div><div class="legend"><span><i class="available"></i>可用</span><span><i class="unavailable"></i>不可用</span><span><i class="unknown"></i>待确认</span></div>
+      <div class="timeline-footer"><p id="date-feedback" role="status">11月10—12日 · 模拟可用</p><a id="choose-period" href="index.html?entry=brief&amp;start=2026-11-10&amp;end=2026-11-12">带入需求 →</a></div><p class="map-disclaimer">参照地标不代表可租空间；所有档期均需人工确认。</p>
+    </section>
+  </section>
+  <section class="agent" aria-labelledby="agent-title"><div class="agent-heading"><h2 id="agent-title">AI 空间助手</h2><span>模拟入口</span></div><p>告诉我你的活动，我帮你梳理选址条件。</p>
+    <form id="agent-form"><label class="sr-only" for="agent-input">描述活动需求，请勿填写个人信息</label><input id="agent-input" required maxlength="500" placeholder="11月，100人的品牌发布会" autocomplete="off"><button type="submit" aria-label="发送演示需求">→</button></form>
+    <div class="suggestions"><button type="button" data-prompt="我想按档期找空间">按档期找空间</button><button type="button" data-prompt="我想看看场租减免的共创机会">看看共创机会</button></div>
+  </section>
+  <section class="feed" id="spaces" aria-labelledby="feed-title"><div class="section-heading"><h2 id="feed-title">空间里的发生</h2><span>概念素材</span></div><div class="feed-filters" role="group" aria-label="筛选内容"><button type="button" data-filter="all" aria-pressed="true">全部</button><button type="button" data-filter="case" aria-pressed="false">案例</button><button type="button" data-filter="space" aria-pressed="false">空间</button></div>
+    <div class="photo-grid">
+      <a class="feed-card" data-kind="space" href="index.html"><img src="assets/courtyard.png" alt="庭院与绿树概念图片，非实景" width="400" height="300"><h3>庭院，日光与绿树</h3><p>空间 · 白庭01概念</p></a>
+      <a class="feed-card" data-kind="space" href="index.html#plan-title"><img src="assets/gallery.png" alt="画廊风格参考，非白庭实景" width="400" height="300"><h3>室内展示的留白</h3><p>空间 · 风格参考</p></a>
+      <a class="feed-card" data-kind="case" href="index.html#case-title"><img src="assets/courtyard.png" class="detail-crop" alt="庭院概念参考，非活动现场" width="400" height="300" loading="lazy"><h3>器物发布的环形动线</h3><p>案例 · 模拟方案，非现场</p></a>
+      <a class="feed-card" data-kind="space" href="index.html#plan-title"><img src="assets/warehouse.png" alt="开放式空间参考，非白庭实景" width="400" height="300" loading="lazy"><h3>开放空间的布置可能</h3><p>空间 · 风格参考</p></a>
+    </div><p class="feed-note" id="feed-note" role="status">4条概念内容 · 照片统一4:3</p>
+  </section><p class="disclaimer">此版仅演示点位、档期与需求流程。没有实时地图、联网AI或真实预订；空间与价格为模拟，图片非真实案例，不收集联系人。</p>
+  <nav class="bottom-nav" aria-label="主导航"><a href="discovery.html" aria-current="page">发现</a><button id="find-space" type="button">找空间</button><button id="open-agent" type="button">AI匹配<small>模拟</small></button><a href="index.html?entry=records">我的</a></nav>
+</main>
+<dialog id="agent-dialog" aria-labelledby="chat-title"><header class="chat-header"><h2 id="chat-title">AI 空间助手</h2><button id="close-agent" type="button">关闭</button></header><p class="chat-notice">本地规则演示，不调用真实AI。请勿填写个人或客户机密。</p><p class="chat-question" id="chat-question"></p><p class="chat-answer" id="chat-answer"></p><a class="primary-action" id="continue-brief" href="index.html?entry=brief&amp;from=discovery">确认并补充活动需求 ↗</a><a class="secondary-action" href="index.html#date-title">查看模拟共创机会 →</a><p class="chat-notice" id="draft-notice"></p></dialog>
+<script src="discovery.js?v=map-grid-2"></script></body></html>
