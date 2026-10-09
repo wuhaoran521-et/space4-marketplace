@@ -25,7 +25,14 @@
   $('open-agent').addEventListener('click', () => { window.scrollTo({top:document.querySelector('.agent').getBoundingClientRect().top+window.scrollY-16,behavior:'auto'}); input.focus({preventScroll:true}); });
   document.querySelectorAll('[data-prompt]').forEach(button => button.addEventListener('click', () => { input.value = button.dataset.prompt; input.focus({preventScroll:true}); }));
   const dialog = $('agent-dialog');
-  $('close-agent').addEventListener('click', () => dialog.close()); dialog.addEventListener('close', () => input.focus({preventScroll:true}));
+  const sendButton = $('agent-form').querySelector('button[type="submit"]');
+  let returnScrollY = window.scrollY;
+  $('close-agent').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => {
+    input.blur();
+    sendButton.focus({preventScroll:true});
+    window.scrollTo({top:returnScrollY,behavior:'auto'});
+  });
   $('agent-form').addEventListener('submit', event => {
     event.preventDefault(); const text = input.value.trim();
     if (!text) { input.setCustomValidity('请先描述你的活动。'); input.reportValidity(); return; }
@@ -39,6 +46,9 @@
     $('chat-question').textContent=text;
     $('chat-answer').textContent=/共创|减免|免费/.test(text) ? '白庭01有一项模拟共创机会，可申请基础场租减免，并非无条件免费。11月14日档期待确认；设备、搭建等额外费用不在减免范围内。\n可以先看条件，再补充活动需求。' : `本地规则${known.length?`识别到：${known.join(' · ')}`:'暂未识别到明确的人数、用途或日期'}。\n目前只有白庭01一个模拟样本。请在下一步确认具体日期、布置方式、区域和预算；未提供的条件不会自动补全。`;
     try {sessionStorage.setItem('space-four-discovery-draft-v1',JSON.stringify(draft));$('draft-notice').textContent='仅在当前标签页临时带入已识别字段；请在下一步核对。';} catch {$('draft-notice').textContent='浏览器不能暂存条件，请在下一步手动填写。';}
+    returnScrollY = window.scrollY;
+    input.blur();
+    sendButton.focus({preventScroll:true});
     dialog.showModal();
   });
   input.addEventListener('input',()=>input.setCustomValidity(''));
