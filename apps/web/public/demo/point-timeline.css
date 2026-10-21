@@ -3,6 +3,30 @@
 .page .map{height:460px;background:var(--paper);isolation:isolate;overflow:hidden}
 .map::before{content:"";position:absolute;inset:0;background:var(--paper) url('assets/map-full-v4.png') no-repeat center;background-size:cover;z-index:-1}
 .map::after{content:none}
+.amap-canvas{position:absolute;inset:0;opacity:0;pointer-events:none}
+.map.has-live-map::before{content:none}
+.map.has-live-map .amap-canvas{opacity:1;pointer-events:auto}
+.map.has-live-map #space-pin,.map.has-live-map .reference-landmark{display:none}
+.live-marker{position:relative;width:70px;height:70px}
+.map.has-live-map .live-marker .space-pin{position:relative;left:auto;top:auto;transform:none}
+.map.has-live-map .live-marker .timeline{top:auto;bottom:35px;left:35px;width:min(245px,calc(100vw - 100px));z-index:1}
+.map.has-live-map .map-note{top:8px;bottom:auto}
+.map-connect{position:absolute;left:16px;bottom:24px;z-index:4;min-height:44px;padding:0 13px;border:1px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink);font-size:12px;box-shadow:0 2px 8px rgba(32,33,30,.08)}
+.map-connect:hover{background:var(--paper)}
+.map-zoom{position:absolute;right:18px;top:18px;z-index:4;display:grid;background:var(--surface);border:1px solid var(--line);border-radius:2px}
+.map-zoom button{width:44px;height:44px;border:0;background:transparent;font-size:22px;line-height:1}
+.map-zoom button+button{border-top:1px solid var(--line)}
+.map-zoom button:hover{background:var(--paper)}
+#map-setup-dialog{width:calc(100% - 32px);max-width:398px;max-height:85dvh;overflow:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);padding:22px}
+#map-setup-dialog::backdrop{background:rgba(32,33,30,.35)}
+#map-setup-dialog header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+#map-setup-dialog h2{font-size:20px;font-weight:550}
+#close-map-setup{min-width:44px;min-height:44px;border:0;background:none;font-size:20px;color:var(--muted)}
+#map-setup-dialog p{font-size:12px;color:var(--muted);line-height:1.7;margin:10px 0 16px}
+#map-setup-dialog label{display:block;font-size:13px;margin:13px 0 5px}
+#map-setup-dialog input{width:100%;min-height:46px;padding:9px 11px;border:1px solid var(--line);border-radius:2px;background:var(--paper);color:var(--ink);font-size:16px}
+#map-setup-dialog .map-setup-submit{width:100%;min-height:48px;border:0;border-radius:2px;background:var(--accent);color:var(--surface);font-size:14px}
+#map-setup-dialog .map-setup-submit:disabled{opacity:.55;cursor:wait}
 .map .space-pin::after{content:"白庭 01 · 示意";position:absolute;left:48px;top:25px;padding:2px 5px;background:var(--surface);color:var(--accent);font-size:11px;white-space:nowrap}
 .map .space-pin[aria-expanded=true]::after{display:none}
 .reference-landmark{position:absolute;display:flex;align-items:center;gap:4px;font-size:10px;color:var(--muted);padding:2px 5px;background:var(--surface);pointer-events:none}

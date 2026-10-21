@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>发现 · 空间与时间 · SPACE⁴</title><meta name="description" content="SPACE⁴空间发现演示，所有位置与档期均为模拟。"><link rel="stylesheet" href="discovery.css?v=map-grid-2"><link rel="stylesheet" href="point-timeline.css?v=stable-input-5"></head>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>发现 · 空间与时间 · SPACE⁴</title><meta name="description" content="发现空间里的新故事、品牌活动和共创机会。SPACE⁴设计预览，空间与内容为虚构示例。"><link rel="stylesheet" href="discovery.css?v=map-grid-2"><link rel="stylesheet" href="point-timeline.css?v=amap-local-1"><link rel="stylesheet" href="editorial-home.css?v=amap-prototype-1"></head>
 <body><main class="page">
-  <header class="topbar"><span class="brand">SPACE<sup>4</sup></span><span class="location">上海 ⌄ <span class="demo-tag">概念演示</span></span></header>
+  <header class="topbar"><span class="brand">SPACE<sup>4</sup></span><span class="location">上海 ⌄</span></header>
   <section class="map-section" aria-label="地图与档期演示">
-    <div class="map" role="group" aria-label="上海中心城区概念地图，非实时或测绘地图"><button class="space-pin" id="space-pin" data-asset-id="DEMO-SHA-JA-001" type="button" aria-label="白庭01，展开或收起模拟档期" aria-expanded="false" aria-controls="timeline"><span class="pin-dot"></span></button><button class="map-reset" id="map-reset" type="button" aria-label="重新选择模拟空间">◎</button><span class="map-note">地图示意 · 点击白庭点位查看时间</span>
+    <div class="map" role="group" aria-label="上海中心城区概念地图，非实时或测绘地图"><div class="amap-canvas" id="amap-canvas" aria-hidden="true"></div><button class="space-pin" id="space-pin" data-asset-id="DEMO-SHA-JA-001" type="button" aria-label="白庭01，展开或收起模拟档期" aria-expanded="false" aria-controls="timeline"><span class="pin-dot"></span></button><button class="map-reset" id="map-reset" type="button" aria-label="重新选择模拟空间">◎</button><div class="map-zoom" id="map-zoom" hidden><button type="button" id="map-zoom-in" aria-label="放大地图">+</button><button type="button" id="map-zoom-out" aria-label="缩小地图">−</button></div><button class="map-connect" id="map-connect" type="button" hidden>连接高德地图</button><span class="map-note" id="map-note">地图示意 · 点击白庭点位查看时间</span>
     <span class="reference-landmark temple">静安寺 · 示意</span><span class="reference-landmark exhibition">上海展览中心 · 示意</span>
     <section class="timeline" id="timeline" aria-labelledby="timeline-title" hidden>
       <div class="timeline-heading"><div><h1 id="timeline-title">白庭 <span>01</span></h1><p class="timeline-month">2026年11月 · 模拟</p></div><button id="close-timeline" type="button" aria-label="收起时间轴">×</button></div>
@@ -14,24 +14,19 @@
         <button type="button" data-date="2026-11-13" data-state="unavailable" aria-pressed="false"><i></i><span>11/13</span><small>占用</small></button>
         <button type="button" data-date="2026-11-14" data-state="unknown" aria-pressed="false"><i></i><span>11/14</span><small>待确认</small></button>
       </div>
-      <div class="timeline-footer"><p id="date-feedback" role="status">11月10—12日 · 模拟可用</p><a id="choose-period" href="index.html?entry=brief&amp;start=2026-11-10&amp;end=2026-11-12">带入需求 →</a><a href="index.html">查看空间 ↗</a></div>
+      <div class="timeline-footer"><p id="date-feedback" role="status">11月10—12日 · 模拟可用</p><a id="choose-period" href="index.html?entry=brief&amp;start=2026-11-10&amp;end=2026-11-12">带入需求 →</a><a id="timeline-view-story" href="index.html">查看空间 ↗</a></div>
     </section>
-    </div><p class="map-disclaimer">参照地标不代表可租空间；位置及档期均为演示。</p>
+    </div><p class="map-disclaimer sr-only">白庭 01 为虚构空间，地图点位仅表示静安街区范围，不是可导航地址；档期为模拟。</p>
   </section>
-  <section class="agent" aria-labelledby="agent-title"><div class="agent-heading"><h2 id="agent-title">AI 空间助手</h2><span>模拟入口</span></div><p>告诉我你的活动，我帮你梳理选址条件。</p>
-    <form id="agent-form"><label class="sr-only" for="agent-input">描述活动需求，请勿填写个人信息</label><input id="agent-input" required maxlength="500" placeholder="11月，100人的品牌发布会" autocomplete="off"><button type="submit" aria-label="发送演示需求">→</button></form>
-    <div class="suggestions"><button type="button" data-prompt="我想按档期找空间">按档期找空间</button><button type="button" data-prompt="我想看看场租减免的共创机会">看看共创机会</button></div>
+  <section class="agent" aria-labelledby="agent-title"><div class="agent-heading"><h2 id="agent-title">AI 空间助手</h2></div>
+    <form id="agent-form"><label class="sr-only" for="agent-input">描述活动需求，请勿填写个人信息</label><input id="agent-input" required maxlength="500" placeholder="说说你的活动，帮你找空间" autocomplete="off"><button type="submit" aria-label="发送活动需求">→</button></form>
   </section>
-  <section class="feed" id="spaces" aria-labelledby="feed-title"><div class="section-heading"><h2 id="feed-title">空间里的发生</h2><span>概念素材</span></div><div class="feed-filters" role="group" aria-label="筛选内容"><button type="button" data-filter="all" aria-pressed="true">全部</button><button type="button" data-filter="case" aria-pressed="false">案例</button><button type="button" data-filter="space" aria-pressed="false">空间</button></div>
-    <div class="photo-grid"><div class="feed-column">
-      <a class="feed-card portrait" data-kind="space" href="index.html"><img src="assets/courtyard.png" alt="庭院与绿树概念图片，非实景" width="400" height="500"><h3>庭院，日光与绿树</h3><p>空间 · 白庭01概念</p></a>
-      <a class="feed-card" data-kind="case" href="index.html#case-title"><img src="assets/courtyard.png" class="detail-crop" alt="庭院概念参考，非活动现场" width="400" height="300" loading="lazy"><h3>器物发布的环形动线</h3><p>案例 · 模拟方案，非现场</p></a>
-    </div><div class="feed-column">
-      <a class="feed-card" data-kind="space" href="index.html#plan-title"><img src="assets/gallery.png" alt="画廊风格参考，非白庭实景" width="400" height="300"><h3>室内展示的留白</h3><p>空间 · 风格参考</p></a>
-      <a class="feed-card portrait" data-kind="space" href="index.html#plan-title"><img src="assets/warehouse.png" alt="开放式空间参考，非白庭实景" width="400" height="500" loading="lazy"><h3>开放空间的布置可能</h3><p>空间 · 风格参考</p></a>
-    </div></div><p class="feed-note" id="feed-note" role="status">4条概念内容 · 横竖图交错</p>
-  </section><p class="disclaimer">此版仅演示点位、档期与需求流程。没有实时地图、联网AI或真实预订；空间与价格为模拟，图片非真实案例，不收集联系人。</p>
-  <nav class="bottom-nav" aria-label="主导航"><a href="discovery.html" aria-current="page">发现</a><button id="find-space" type="button">找空间</button><button id="open-agent" type="button">AI匹配<small>模拟</small></button><a href="index.html?entry=records">我的</a></nav>
+  <section class="feed" id="spaces" aria-labelledby="feed-title"><div class="section-heading"><h2 id="feed-title">空间里的发生</h2></div><div class="feed-filters" role="group" aria-label="筛选内容"><button type="button" data-filter="all" aria-pressed="true">全部</button><button type="button" data-filter="space" aria-pressed="false">空间</button><button type="button" data-filter="case" aria-pressed="false">案例</button><button type="button" data-filter="opportunity" aria-pressed="false">档期机会</button></div>
+    <div class="photo-grid" id="editorial-feed"></div><p class="feed-note sr-only" id="feed-note" role="status">8条内容</p><noscript><p>请启用 JavaScript 查看精选内容。<a href="index.html">也可以直接查看白庭示例空间 →</a></p></noscript>
+  </section><p class="disclaimer">设计预览 · 空间与内容为虚构示例</p>
+  <nav class="bottom-nav" aria-label="主导航"><a href="discovery.html" aria-current="page">发现</a><button id="find-space" type="button">找空间</button><button id="open-agent" type="button">AI匹配</button><a href="index.html?entry=records">我的</a></nav>
 </main>
+<dialog id="story-dialog" aria-labelledby="story-title"><header class="story-header"><span>空间里的发生</span><button id="close-story" type="button" aria-label="关闭内容">关闭</button></header><img id="story-image" alt=""><div class="story-body"><p id="story-meta" class="story-meta"></p><h2 id="story-title"></h2><p id="story-copy" class="story-copy"></p><p class="story-preview-note">虚构内容与生成式配图，仅供设计预览。</p><button id="story-location" class="secondary-action" type="button">查看地图位置 ↗</button><a id="story-space-link" class="primary-action" href="index.html">查看白庭示例空间 ↗</a><button id="story-demand" class="primary-action" type="button">带入选址需求 →</button></div></dialog>
+<dialog id="map-setup-dialog" aria-labelledby="map-setup-title"><form id="map-setup-form"><header><h2 id="map-setup-title">连接高德地图</h2><button type="button" id="close-map-setup" aria-label="关闭地图设置">×</button></header><p>仅供本机预览。请输入高德开放平台的 Web 端（JS API）Key 与安全密钥。本页不会保存它们；请不要提交到 GitHub。</p><label for="amap-key">Web JS API Key</label><input id="amap-key" name="amap-key" type="text" required autocomplete="off" spellcheck="false"><label for="amap-security-code">安全密钥</label><input id="amap-security-code" name="amap-security-code" type="password" required autocomplete="off" spellcheck="false"><p id="map-setup-status" role="status">地图加载后可拖动、缩放，点选白庭查看模拟档期。</p><button class="map-setup-submit" type="submit">加载真实地图</button></form></dialog>
 <dialog id="agent-dialog" aria-labelledby="chat-title"><header class="chat-header"><h2 id="chat-title">AI 空间助手</h2><button id="close-agent" type="button">关闭</button></header><p class="chat-notice">本地规则演示，不调用真实AI。请勿填写个人或客户机密。</p><p class="chat-question" id="chat-question"></p><p class="chat-answer" id="chat-answer"></p><a class="primary-action" id="continue-brief" href="index.html?entry=brief&amp;from=discovery">确认并补充活动需求 ↗</a><a class="secondary-action" href="index.html#date-title">查看模拟共创机会 →</a><p class="chat-notice" id="draft-notice"></p></dialog>
-<script src="discovery.js?v=stable-input-5"></script></body></html>
+<script src="venue-data.js?v=amap-prototype-1"></script><script src="discovery-feed.js?v=amap-prototype-1"></script><script src="discovery.js?v=amap-prototype-1"></script><script src="amap-config.js"></script><script src="amap-local.js?v=amap-prototype-1"></script></body></html>

@@ -38,6 +38,21 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
         run: npm run build
 
+      - name: 注入原型地图测试配置
+        env:
+          AMAP_PROTOTYPE_KEY: ${{ secrets.AMAP_PROTOTYPE_KEY }}
+          AMAP_PROTOTYPE_SECURITY_CODE: ${{ secrets.AMAP_PROTOTYPE_SECURITY_CODE }}
+        run: |
+          node - <<'JS'
+          const fs = require('node:fs');
+          const key = process.env.AMAP_PROTOTYPE_KEY;
+          const securityJsCode = process.env.AMAP_PROTOTYPE_SECURITY_CODE;
+          if (!key || !securityJsCode) throw new Error('缺少高德原型测试配置');
+          fs.writeFileSync('apps/web/out/demo/amap-config.js',
+            '/* Public prototype configuration; intentionally browser-readable. */\nwindow.Space4AmapConfig = ' +
+            JSON.stringify({ key, securityJsCode }) + ';\n');
+          JS
+
       - name: 配置 GitHub Pages
         uses: actions/configure-pages@v5
 
