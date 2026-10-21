@@ -19,6 +19,10 @@
 .live-marker:not(.is-selected) .space-pin::after {
   color: var(--ink);
 }
+.map.has-live-map [data-asset-id="DEMO-SHA-XH-002"]::after {
+  top: 2px;
+  left: 36px;
+}
 .map.has-live-map .live-marker .space-pin {
   display: block;
 }
