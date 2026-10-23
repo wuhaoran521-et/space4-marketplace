@@ -7,7 +7,9 @@
   const mapElement = document.querySelector(".map");
   const pins = new Map();
   const markers = new Map();
-  let selected = venues[0];
+  const requestedVenue = new URLSearchParams(location.search).get("venue");
+  let selected =
+    venues.find((venue) => venue.id === requestedVenue) || venues[0];
   let map = null;
   let loading = false;
   let scriptPromise;
@@ -222,6 +224,7 @@
       loading = false;
     }
   }
+  if (requestedVenue) controller.selectVenue(selected.id);
   if (window.Space4AmapConfig?.key && window.Space4AmapConfig?.securityJsCode)
     start(window.Space4AmapConfig);
   else {

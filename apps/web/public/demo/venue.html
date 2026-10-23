@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>空间详情 · SPACE⁴</title>
+    <link rel="stylesheet" href="venue.css?v=2" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <a href="discovery.html" aria-label="返回发现首页">‹</a
+        ><span class="brand">SPACE<sup>4</sup></span
+        ><button type="button" data-share>分享 ↗</button>
+      </header>
+      <figure class="hero">
+        <img id="hero-image" alt="" />
+        <figcaption>生成式概念配图 · 非实景</figcaption>
+      </figure>
+      <article class="story">
+        <p class="eyebrow" id="story-meta"></p>
+        <h1 id="story-title"></h1>
+        <p class="story-copy" id="story-copy"></p>
+      </article>
+      <nav class="section-nav" aria-label="本页目录">
+        <a href="#facts">空间信息</a><a href="#location">位置动线</a
+        ><a href="#dates">档期</a><a href="#cases">活动案例</a>
+      </nav>
+      <section id="facts">
+        <p class="eyebrow">关于这个空间</p>
+        <div class="heading">
+          <h2 id="venue-name"></h2>
+          <span class="minor">虚构空间</span>
+        </div>
+        <p id="venue-area" class="muted"></p>
+        <div id="tags" class="tags"></div>
+        <dl class="metrics" id="metrics"></dl>
+        <p class="minor">模拟参数与基础场租参考，不是实际报价。</p>
+        <div class="area-track" id="area-track"></div>
+        <div id="area-legend" class="area-legend"></div>
+        <details>
+          <summary>执行条件与使用限制</summary>
+          <p id="conditions"></p>
+        </details>
+      </section>
+      <section id="location">
+        <div class="heading">
+          <h2>位置与现场</h2>
+          <span class="minor">街区示意</span>
+        </div>
+        <p id="environment" class="muted"></p>
+        <div class="model">
+          <div class="model-caption">
+            <span>空间分区与动线</span><span>示意 · 非测绘</span>
+          </div>
+          <div class="plan">
+            <div class="plan-main" id="plan-main"></div>
+            <div class="plan-side" id="plan-side"></div>
+            <div class="plan-entry">入口 / 签到 → 主空间 → 交流区</div>
+          </div>
+          <p class="minor">平面白膜示意，尚无3D旋转；不代表疏散或施工方案。</p>
+        </div>
+        <dl class="routes">
+          <dt>观众动线</dt>
+          <dd id="guest-route"></dd>
+          <dt>物流动线</dt>
+          <dd>装卸入口 → 临时后台 → 布置区，具体路线需场地方确认。</dd>
+        </dl>
+        <a id="map-link" class="map-link" href="discovery.html"
+          >回到地图查看示意位置 ↗</a
+        >
+      </section>
+      <section id="dates">
+        <div class="heading">
+          <h2>空间，也有它的时间</h2>
+          <span class="minor">2026年11月</span>
+        </div>
+        <div id="date-list" class="date-list"></div>
+        <p class="minor">模拟档期，未锁定；实际使用前需人工复核。</p>
+        <div class="fee">
+          <span>基础场租参考</span><strong id="price"></strong>
+        </div>
+        <p id="fees" class="muted"></p>
+        <p class="minor" id="opportunity"></p>
+      </section>
+      <section id="cases">
+        <div class="heading">
+          <h2>这里发生过的故事</h2>
+          <span id="case-count" class="minor"></span>
+        </div>
+        <p class="minor intro">案例以模拟帖子呈现，点击查看完整内容。</p>
+        <div id="case-feed" class="case-feed"></div>
+      </section>
+      <p class="disclaimer">
+        设计原型：空间、案例、价格与档期均为模拟。图片为生成式概念素材，点位仅对应上海街区，不是真实可租地址。需求仅保存在本机，不发送给运营，不构成报价或预订。
+      </p>
+      <p id="page-feedback" role="status" class="minor feedback"></p>
+      <footer class="bottom-bar">
+        <button id="save-space" type="button" aria-pressed="false">收藏</button
+        ><button type="button" data-share>分享</button
+        ><button type="button" class="primary" id="open-inquiry">
+          留下需求 ↗</button
+        ><small>带上这个空间，留下你的活动需求</small>
+      </footer>
+    </main>
+    <dialog id="inquiry" aria-labelledby="inquiry-title">
+      <header class="dialog-header">
+        <h2 id="inquiry-title">留下你的活动需求</h2>
+        <button type="button" data-close>关闭</button>
+      </header>
+      <p id="inquiry-context" class="muted"></p>
+      <form id="inquiry-form">
+        <label
+          >活动用途<select name="purpose">
+            <option>新品发布</option>
+            <option>展览</option>
+            <option>拍摄</option>
+            <option>快闪</option>
+            <option>其他用途</option>
+          </select></label
+        >
+        <div class="field-grid">
+          <label>开始日期<input name="start" type="date" required /></label
+          ><label>结束日期<input name="end" type="date" required /></label>
+        </div>
+        <div class="field-grid">
+          <label
+            >预计人数<input
+              name="people"
+              type="number"
+              min="1"
+              max="10000"
+              required /></label
+          ><label
+            >基础场租预算（元）<input
+              name="budget"
+              type="number"
+              min="0"
+              max="100000000"
+              placeholder="可留空"
+          /></label>
+        </div>
+        <label
+          >还有什么需要确认？<textarea
+            name="notes"
+            rows="3"
+            maxlength="1000"
+            placeholder="例如装卸、设备、搭建与雨天备选。请勿填写真实个人信息。"
+          ></textarea>
+        </label>
+        <p id="inquiry-feedback" role="status" class="muted"></p>
+        <button class="primary" type="submit">保存需求到本机</button>
+        <p class="minor">仅用于原型测试，不发送运营、不锁定档期。</p>
+      </form>
+    </dialog>
+    <dialog id="share" aria-labelledby="share-title">
+      <header class="dialog-header">
+        <h2 id="share-title">分享这个空间</h2>
+        <button type="button" data-close>关闭</button>
+      </header>
+      <p class="muted">分享这个空间的物业信息与活动案例入口。</p>
+      <input id="share-url" readonly aria-label="空间分享链接" /><button
+        type="button"
+        class="primary"
+        id="copy-share"
+      >
+        复制链接
+      </button>
+      <p id="share-feedback" role="status" class="minor"></p>
+    </dialog>
+    <noscript
+      >请启用JavaScript查看空间信息。<a href="discovery.html"
+        >返回发现首页</a
+      ></noscript
+    >
+    <script src="venue-data.js?v=amap-prototype-1"></script>
+    <script src="story-data.js?v=detail-2"></script>
+    <script src="venue-detail-data.js?v=1"></script>
+    <script src="venue.js?v=2"></script>
+  </body>
+</html>

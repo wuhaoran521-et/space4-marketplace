@@ -25,8 +25,9 @@
     $("choose-period").setAttribute("aria-disabled", "false");
     $("choose-period").href =
       `index.html?entry=brief&start=${selectedDate}&end=${selectedDate}`;
-    $("timeline-view-story").textContent =
-      selectedVenue === window.Space4Venues[0] ? "查看空间 ↗" : "看相关内容 ↗";
+    $("timeline-view-story").textContent = "查看空间 ↗";
+    $("timeline-view-story").href =
+      `venue.html?venue=${encodeURIComponent(selectedVenue.id)}`;
     window.Space4LocalMap?.selectVenue(selectedVenue.id);
     showTimeline(options.open !== false);
     document.dispatchEvent(
@@ -93,7 +94,6 @@
     }
   });
   $("timeline-view-story").addEventListener("click", (event) => {
-    if (selectedVenue === window.Space4Venues[0]) return;
     event.preventDefault();
     window.Space4Feed.openVenue(selectedVenue.id, event.currentTarget);
   });
